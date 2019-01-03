@@ -5,6 +5,8 @@ var sign = {
 
         sign.createCtx();
         sign.makePlume();
+        sign.drawOnClick();
+        sign.stopDraw();
         sign.makeDraw();
     },
 
@@ -25,13 +27,30 @@ var sign = {
     },
 
     makeDraw: function(){
-        sign.canvas.addEventListener('mousedown', function(e){
-            // dessiner un point
-            sign.ctx.beginPath();
-            sign.ctx.arc(e.offsetX, e.offsetY, 3, 0, 2 * Math.PI, false);
-            sign.ctx.fillStyle = '#000';
-            sign.ctx.fill();
-          }.bind(sign));
+        sign.canvas.addEventListener('mousemove', function(e){
+            if(sign.click){
+                // dessiner des point
+                sign.ctx.beginPath();
+                sign.ctx.arc(e.offsetX, e.offsetY, 3, 0, 2 * Math.PI, false);
+                sign.ctx.fillStyle = '#000';
+                sign.ctx.fill();
+            }else if(!sign.click){
+
+            };
+        }.bind(sign));
+        
+    },
+
+    drawOnClick: function(){
+        sign.canvas.addEventListener('mousedown', function(){
+            sign.click = true;
+        });
+    },
+    
+    stopDraw: function(){
+        sign.canvas.addEventListener('mouseup', function(){
+            sign.click = false;
+        });
     }
 
 }
