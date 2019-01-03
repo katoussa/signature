@@ -3,7 +3,9 @@ var globalMain = {
         sign: {
             signature: document.getElementById("signature"),
             canvas: document.getElementById("canvas"),
-            img: "img/plume.png"
+            ctx: "",
+            img: "img/plume.png",
+            clear: document.getElementById("clearSign")
         }
     },
     methods: {
@@ -16,7 +18,9 @@ var globalMain = {
 
             objSign.init(
                 globalMain.data.sign.canvas,
-                globalMain.data.sign.img
+                globalMain.data.sign.ctx,
+                globalMain.data.sign.img,
+                globalMain.data.sign.clear
             );
         }
     }
