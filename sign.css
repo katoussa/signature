@@ -1,0 +1,11 @@
+.up h1{
+    font-size: 100px;
+    text-align: center;
+}
+
+canvas{ 
+    border: 1px solid black; 
+    width: 450px;
+    height: 250px;
+    background-color: #ff0000;
+}
